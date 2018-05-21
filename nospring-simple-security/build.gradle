@@ -1,0 +1,28 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'ru.cmlt.security.nospring-simple'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 10
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+    def tomcatVersion = '9.0.8'
+
+    compile "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}"
+    compile "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+    compile "org.apache.tomcat.embed:tomcat-embed-logging-juli:9.0.0.M6"
+
+    compile "javax.servlet:javax.servlet-api:3.1.0"
+
+}

@@ -10,3 +10,4 @@
 rootProject.name = 'spring-security'
 
 include 'webflux-simple-security'
+include 'nospring-simple-security'
