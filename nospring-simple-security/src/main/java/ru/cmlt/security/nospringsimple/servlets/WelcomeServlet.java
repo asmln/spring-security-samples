@@ -1,4 +1,4 @@
-package ru.cmlt.security.nospringsimple;
+package ru.cmlt.security.nospringsimple.servlets;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +16,7 @@ public class WelcomeServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
         var outStream = resp.getOutputStream();
-        outStream.write("nospring-simple: Welcome, anon!".getBytes());
+        outStream.write("nospring-simple -> Welcome, anon!".getBytes());
         outStream.flush();
         outStream.close();
     }

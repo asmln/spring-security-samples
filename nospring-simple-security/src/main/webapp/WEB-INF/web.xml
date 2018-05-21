@@ -6,13 +6,31 @@
 
     <servlet>
         <servlet-name>welcomeServlet</servlet-name>
-        <servlet-class>ru.cmlt.security.nospringsimple.WelcomeServlet</servlet-class>
+        <servlet-class>ru.cmlt.security.nospringsimple.servlets.WelcomeServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>profileServlet</servlet-name>
+        <servlet-class>ru.cmlt.security.nospringsimple.servlets.ProfileServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>adminServlet</servlet-name>
+        <servlet-class>ru.cmlt.security.nospringsimple.servlets.AdminServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>welcomeServlet</servlet-name>
         <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>profileServlet</servlet-name>
+        <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminServlet</servlet-name>
+        <url-pattern>/admin</url-pattern>
     </servlet-mapping>
 
 </web-app>
