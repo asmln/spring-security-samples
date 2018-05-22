@@ -4,14 +4,20 @@
          xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <http/>
+    <http>
+        <intercept-url pattern="/profile" access="hasAnyRole('USER', 'ADMIN')"/>
+        <intercept-url pattern="/admin" access="hasRole('ADMIN')"/>
+        <intercept-url pattern="/" access="permitAll"/>
+        <form-login/>
+        <logout/>
+    </http>
 
     <authentication-manager>
         <authentication-provider>
             <password-encoder ref="passwordEncoder"/>
             <user-service>
-                <user name="user" password="$2a$10$yoxWvuBIG9rLM5G5cSB0.eJpFWYL.cMmwK2VDOjStgG5A2GZpOrue" authorities="USER"/>
-                <user name="admin" password="$2a$10$yoxWvuBIG9rLM5G5cSB0.eJpFWYL.cMmwK2VDOjStgG5A2GZpOrue" authorities="ADMIN"/>
+                <user name="user" password="$2a$10$yoxWvuBIG9rLM5G5cSB0.eJpFWYL.cMmwK2VDOjStgG5A2GZpOrue" authorities="ROLE_USER"/>
+                <user name="admin" password="$2a$10$yoxWvuBIG9rLM5G5cSB0.eJpFWYL.cMmwK2VDOjStgG5A2GZpOrue" authorities="ROLE_ADMIN"/>
             </user-service>
         </authentication-provider>
     </authentication-manager>
