@@ -10,13 +10,13 @@ import java.io.IOException;
  */
 public class AdminServlet extends HttpServlet {
 
-    private static final long serialVersionUID = 2004364098875977453L;
+    private static final long serialVersionUID = 1148575641583478838L;
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
         var outStream = resp.getOutputStream();
-        outStream.write("nospring-simple -> Admin access: anon".getBytes());
+        outStream.write(String.format("nospring-simple -> Admin access: %s", SecurityUtils.authUserName(req)).getBytes());
         outStream.flush();
         outStream.close();
     }

@@ -16,7 +16,8 @@ public class WelcomeServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
         var outStream = resp.getOutputStream();
-        outStream.write("nospring-simple -> Welcome, anon!".getBytes());
+        String userName = SecurityUtils.authUserName(req);
+        outStream.write(String.format("nospring-simple -> Welcome, %s!", (userName != null ? userName : "anon")).getBytes());
         outStream.flush();
         outStream.close();
     }

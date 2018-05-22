@@ -10,13 +10,13 @@ import java.io.IOException;
  */
 public class ProfileServlet extends HttpServlet {
 
-    private static final long serialVersionUID = 2004364098875977453L;
+    private static final long serialVersionUID = -1076203250458630728L;
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
         var outStream = resp.getOutputStream();
-        outStream.write("nospring-simple -> Profile: anon".getBytes());
+        outStream.write(String.format("nospring-simple -> Profile: %s", SecurityUtils.authUserName(req)).getBytes());
         outStream.flush();
         outStream.close();
     }
