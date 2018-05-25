@@ -9,7 +9,8 @@
         <intercept-url pattern="/admin" access="hasRole('ADMIN')"/>
         <intercept-url pattern="/" access="permitAll"/>
         <form-login/>
-        <logout/>
+        <logout logout-success-url="/" />
+        <csrf disabled="true"/>
     </http>
 
     <authentication-manager>
